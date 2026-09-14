@@ -4,22 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Heshan Madhuwantha | IS Undergraduate Portfolio</title>
+<title>Heshan Madhuwantha | Frontend Developer &amp; IS Undergraduate</title>
 
-<meta name="description" content="Heshan Madhuwantha - Business Information Systems undergraduate portfolio showcasing web projects, technical skills, education, and software solutions.">
+<meta name="description" content="Portfolio of Heshan Madhuwantha, a Frontend Developer and Business Information Systems undergraduate building responsive interfaces and practical software solutions.">
+<meta name="author" content="Heshan Madhuwantha">
+<link rel="canonical" href="https://heshanmadhuwantha.github.io/">
 <meta name="theme-color" content="#020617">
 
 <!-- Open Graph / Facebook / LinkedIn -->
-<meta property="og:title" content="Heshan Madhuwantha | IS Undergraduate Portfolio">
-<meta property="og:description" content="Business Information Systems undergraduate portfolio showcasing web projects, technical skills, education, and software solutions.">
+<meta property="og:title" content="Heshan Madhuwantha | Frontend Developer Portfolio">
+<meta property="og:description" content="Frontend Developer and Information Systems undergraduate creating responsive, user-focused digital experiences.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://heshanmadhuwantha.github.io/">
 <meta property="og:image" content="images/profile.jpg">
 <meta property="og:image:alt" content="Heshan Madhuwantha Portfolio">
+<meta property="og:image:type" content="image/jpeg">
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Heshan Madhuwantha | IS Undergraduate Portfolio">
-<meta name="twitter:description" content="Business Information Systems undergraduate portfolio showcasing web projects, technical skills, education, and software solutions.">
+<meta name="twitter:title" content="Heshan Madhuwantha | Frontend Developer Portfolio">
+<meta name="twitter:description" content="Frontend Developer and Information Systems undergraduate creating responsive, user-focused digital experiences.">
 <meta name="twitter:image" content="images/profile.jpg">
 <meta name="twitter:image:alt" content="Heshan Madhuwantha Portfolio">
 
@@ -28,6 +32,9 @@
 
 <!-- Favicon -->
 <link rel="icon" href="images/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <!-- Stylesheet -->
 <link rel="stylesheet" href="style.css">
@@ -38,15 +45,15 @@
     <!-- ==================== NAVBAR ==================== -->
 
     <header class="navbar">
-        <a class="logo" href="#home" aria-label="Heshan Madhuwantha home">HM.</a>
+        <a class="logo" href="#home" aria-label="Heshan Madhuwantha home">HM</a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Open navigation menu"><span></span><span></span><span></span></button>
 
     <nav id="site-navigation" aria-label="Main navigation">
         <a href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="#education">Education</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
+        <a href="#services">Services</a>
         <a href="#contact">Contact</a>
     </nav>
 
@@ -66,19 +73,20 @@
         </div>
 
         <div class="status"><span class="dot"></span>Available for opportunities</div>
-        <h1 id="hero-title">I'M<span>HESHAN MADHUWANTHA</span></h1>
-        <p>Information Systems (IS) Undergraduate | Frontend Developer | UI/UX Design | Database &amp; Software Solutions</p>
+        <h1 id="hero-title"><span>Frontend Developer</span><br>building useful digital experiences.</h1>
+        <p>I’m Heshan Madhuwantha, an Information Systems undergraduate who turns ideas into clean, responsive interfaces and practical software solutions.</p>
         <div class="buttons">
             <a href="#projects" class="btn primary">View Projects</a>
-            <a href="#contact" class="btn outline">Contact Me</a>
+            <a href="#contact" class="btn outline">Hire Me</a>
         </div>
+        <div class="hero-meta"><span>HTML / CSS / JavaScript</span><span>Open to opportunities</span></div>
     </section>
 
     <!-- ==================== ABOUT ==================== -->
     <section class="about" id="about">
         <div class="about-container">
             <div class="about-img">
-                <img src="images/profile.jpg" alt="Portrait of Heshan Madhuwantha" width="2871" height="3924" fetchpriority="high">
+                <img src="images/profile.jpg" alt="Portrait of Heshan Madhuwantha" width="900" height="1230" fetchpriority="high">
             </div>
             <div class="about-content">
                 <h2>About Me</h2>
@@ -105,7 +113,7 @@
                 </div>
 
                 <!-- CV -->
-                <span class="cv-btn unavailable" role="status" title="CV unavailable until the file is added">CV currently unavailable</span>
+                <a class="cv-btn" href="cv.pdf" download="Heshan-Madhuwantha-CV.pdf">Download CV <span aria-hidden="true">↗</span></a>
             </div>
         </div>
     </section>
@@ -145,17 +153,22 @@
 
     <!-- ==================== PROJECTS ==================== -->
     <section class="projects" id="projects">
-        <h2 class="section-title">My Projects</h2>
+        <p class="eyebrow">Selected work</p>
+        <h2 class="section-title">Projects that solve <span>real problems</span></h2>
         <div class="project-grid">
 
             <!-- Project 1: Dental Clinic -->
-            <article class="project-card">
-                <img src="images/rajapaksha dental.png" alt="Dental Clinic Management System" width="726" height="422" loading="lazy">
+            <article class="project-card featured-project">
+                <img src="images/rajapaksha-dental.jpg" alt="Dental Clinic Management System dashboard showing clinic operations" width="726" height="422" loading="lazy">
                 <div class="project-overlay">
+                    <span class="project-label">Featured project</span>
                     <h3>Dental Clinic Management System</h3>
                     <p>Dental clinic management system for managing patients, doctors, appointments, treatments, prescriptions, and payments.</p>
+                    <div class="tech-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>UI Design</span></div>
                     <div class="project-buttons">
-                        <a href="https://heshanmadhuwantha.github.io/dental-clinic-management-system/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Dental Clinic Management System live project">Live Demo</a>
+                        <a href="#contact" class="project-link" aria-label="Request a Dental Clinic Management System demo">Request Demo</a>
+                        <a href="https://github.com/heshanmadhuwantha" target="_blank" rel="noopener noreferrer" class="project-link secondary-link" aria-label="View Heshan Madhuwantha projects on GitHub">GitHub</a>
+                        <a href="#contact" class="project-link secondary-link" aria-label="Discuss a Dental Clinic Management System case study">Case Study</a>
                     </div>
                 </div>
             </article>
@@ -166,9 +179,12 @@
                 <div class="project-overlay">
                     <h3>Kandy Public Library</h3>
                     <p>Public library web application designed to provide users with an accessible and user-friendly library experience.</p>
+                    <div class="tech-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
                     <div class="project-buttons">
                         <a href="https://heshanmadhuwantha.github.io/kandy-public-library/" target="_blank"
                             rel="noopener noreferrer" class="project-link" aria-label="View Kandy Public Library live project">Live Demo</a>
+                        <a href="https://github.com/heshanmadhuwantha/kandy-public-library" target="_blank" rel="noopener noreferrer" class="project-link secondary-link" aria-label="View Kandy Public Library source on GitHub">GitHub</a>
+                        <a href="#contact" class="project-link secondary-link" aria-label="Discuss a Kandy Public Library case study">Case Study</a>
                     </div>
                 </div>
             </article>
@@ -178,10 +194,11 @@
                 <img src="images/images(3).jpeg" alt="MUI React admin dashboard interface" width="662" height="398" loading="lazy">
                 <div class="project-overlay">
                     <h3>MUI Dashboard</h3>
-                    <p> React admin dashboard interface built with Material UI components. </p>
+                    <p>React admin dashboard interface built with Material UI components.</p>
+                    <div class="tech-stack"><span>React</span><span>MUI</span><span>JavaScript</span></div>
                     <div class="project-buttons">
-                        <span class="project-link unavailable" role="status">Live unavailable</span>
-                        <span class="project-link unavailable" role="status">GitHub unavailable </span>
+                        <a href="https://github.com/heshanmadhuwantha" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View MUI Dashboard source on GitHub">GitHub</a>
+                        <a href="#contact" class="project-link secondary-link" aria-label="Discuss an MUI Dashboard case study">Case Study</a>
                     </div>
                 </div>
             </article>
@@ -191,13 +208,13 @@
     <!-- ==================== SKILLS ==================== -->
     <section class="skills" id="skills">
         <h2 class="section-title">Technical <span>Skills</span></h2>
-        <p class="skills-description">A comprehensive toolkit spanning multiple domains of software development and emerging technologies</p>
+        <p class="skills-description">A practical toolkit for building polished interfaces and reliable information systems.</p>
         <div class="skills-container">
 
             <!-- Programming Languages -->
             <div class="skill-card">
                 <div class="skill-icon blue" aria-hidden="true">&lt;/&gt;</div>
-                <h3>Programming Languages</h3>
+                <h3>Programming</h3>
                 <ul>
                     <li>Java</li>
                     <li>C#</li>
@@ -210,11 +227,11 @@
             <!-- Frontend -->
             <div class="skill-card">
                 <div class="skill-icon purple" aria-hidden="true">🎨</div>
-                <h3>Frontend Frameworks</h3>
+                <h3>Frontend</h3>
                 <ul>
-                    <li>React</li>
                     <li>HTML</li>
                     <li>CSS</li>
+                    <li>React</li>
                     <li>Tailwind CSS</li>
                 </ul>
             </div>
@@ -230,17 +247,40 @@
                 </ul>
             </div>
 
-            <!-- Other Skills -->
+            <!-- Backend -->
+            <div class="skill-card">
+                <div class="skill-icon orange" aria-hidden="true">⌘</div>
+                <h3>Backend</h3>
+                <ul><li>REST concepts</li><li>System design</li><li>Application logic</li></ul>
+            </div>
+
+            <!-- Tools -->
             <div class="skill-card">
                 <div class="skill-icon orange" aria-hidden="true">⚙</div>
 
-                <h3>Others</h3>
+                <h3>Tools</h3>
                 <ul>
                     <li>Git</li>
                     <li>Figma</li>
                     <li>Photoshop</li>
                 </ul>
             </div>
+        </div>
+    </section>
+
+    <!-- ==================== SERVICES ==================== -->
+    <section class="services" id="services">
+        <p class="eyebrow">What I Do</p>
+        <h2 class="section-title">From first idea to <span>finished interface</span></h2>
+        <div class="service-grid">
+            <article class="service-card"><span class="service-number">01</span><h3>Frontend Development</h3><p>Responsive, accessible websites and dashboards that feel fast and intuitive on every screen.</p></article>
+            <article class="service-card"><span class="service-number">02</span><h3>UI Implementation</h3><p>Thoughtful visual systems turned into clean HTML, CSS and JavaScript with close attention to detail.</p></article>
+            <article class="service-card"><span class="service-number">03</span><h3>Information Systems</h3><p>Practical interfaces for managing data, workflows and everyday business operations.</p></article>
+        </div>
+        <div class="support-grid">
+            <div><h3>Why work with me?</h3><p>I combine frontend craft with an Information Systems mindset, so the result is attractive, useful and grounded in how people actually work.</p></div>
+            <div><h3>Currently learning</h3><p>Advanced JavaScript, React patterns, accessibility, software architecture and better product thinking.</p></div>
+            <div><h3>Certifications</h3><p>Diploma in Business Information Systems in progress · Diploma in English · Continuing independent technical study.</p></div>
         </div>
     </section>
 
@@ -269,6 +309,8 @@
                 <div class="social">
                     <a href="https://github.com/heshanmadhuwantha" target="_blank" rel="noopener noreferrer" aria-label="Visit Heshan Madhuwantha on GitHub">GitHub</a>
                     <a href="https://www.linkedin.com/in/heshanmadhuwantha/" target="_blank" rel="noopener noreferrer" aria-label="Visit Heshan Madhuwantha on LinkedIn">LinkedIn</a>
+                    <a href="https://wa.me/94719183239" target="_blank" rel="noopener noreferrer" aria-label="Message Heshan Madhuwantha on WhatsApp">WhatsApp</a>
+                    <a href="mailto:heshanmadhuwantha2002@gmail.com" aria-label="Email Heshan Madhuwantha">Email</a>
                 </div>
             </div>
 
@@ -281,7 +323,7 @@
                     <input type="email" id="from-email" name="from_email" autocomplete="email" placeholder="YourEmail@gmail.com" required>
                     <label for="message">Message</label>
                     <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
-                    <button type="submit" id="submit-button">✈ Send Message</button>
+                    <button type="submit" id="submit-button">Start a Project <span aria-hidden="true">↗</span></button>
                     <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
                 </form>
             </div>
@@ -290,7 +332,10 @@
 </main>
 
 <!-- ==================== FOOTER ==================== -->
-<footer>© 2026 Heshan Madhuwantha | Portfolio</footer>
+<footer>
+    <div class="footer-inner"><a class="logo" href="#home" aria-label="Back to home">HM</a><p>Frontend Developer · Information Systems Undergraduate</p><div class="footer-links"><a href="https://github.com/heshanmadhuwantha" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/heshanmadhuwantha/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="mailto:heshanmadhuwantha2002@gmail.com">Email</a></div></div>
+    <small>© 2026 Heshan Madhuwantha. Built with HTML, CSS and JavaScript.</small>
+</footer>
 
 <!-- ==================== EMAILJS ==================== -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>

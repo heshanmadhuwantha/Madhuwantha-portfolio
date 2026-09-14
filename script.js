@@ -106,7 +106,7 @@
             .finally(function () {
                 // Restore button
                 submitButton.disabled = false;
-                submitButton.textContent = "✈ Send Message";
+                submitButton.textContent = "Start a Project ↗";
             });
     });
 })();
