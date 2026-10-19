@@ -358,10 +358,23 @@ form button:focus-visible {
 .hero {
     position: relative;
 
-    min-height: 100vh;
+    height: calc(100vh + var(--hero-scroll-distance, 220vh));
+    height: calc(100svh + var(--hero-scroll-distance, 220vh));
+
+    scroll-margin-top: 0;
+
+    background: var(--bg);
+}
+
+
+.hero-stage {
+    position: sticky;
+    top: 0;
+
+    height: 100vh;
+    height: 100svh;
 
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
 
@@ -370,12 +383,9 @@ form button:focus-visible {
         24px
         80px;
 
-    text-align: center;
-
     overflow: hidden;
-
     isolation: isolate;
-
+    text-align: center;
     background:
         radial-gradient(
             circle at 50% 45%,
@@ -390,26 +400,28 @@ form button:focus-visible {
 }
 
 
-.hero::before {
-    content: "";
-
+.hero-video {
     position: absolute;
+    inset: 0;
+    z-index: 0;
 
-    width: 500px;
-    height: 500px;
+    width: 100%;
+    height: 100%;
 
-    top: 50%;
-    left: 50%;
+    object-fit: cover;
+    object-position: center;
+}
 
-    transform: translate(-50%, -50%);
 
-    background: rgba(59, 130, 246, 0.08);
+.hero-video-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
 
-    filter: blur(100px);
-
-    border-radius: 50%;
-
-    z-index: -1;
+    background:
+        linear-gradient(180deg, rgba(2, 6, 23, 0.46), rgba(2, 6, 23, 0.32) 48%, rgba(2, 6, 23, 0.72)),
+        linear-gradient(90deg, rgba(2, 6, 23, 0.28), transparent 55%, rgba(2, 6, 23, 0.22));
+    pointer-events: none;
 }
 
 
@@ -420,6 +432,14 @@ form button:focus-visible {
     position: relative;
 
     z-index: 5;
+}
+
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+
+    width: min(100%, 1100px);
 }
 
 
@@ -536,7 +556,7 @@ form button:focus-visible {
 }
 
 
-.hero > p {
+.hero-content > p {
     max-width: 760px;
 
     margin-top: 24px;
@@ -706,7 +726,7 @@ form button:focus-visible {
 
     pointer-events: none;
 
-    z-index: 1;
+    z-index: 2;
 }
 
 
@@ -2288,8 +2308,12 @@ footer {
     /* Hero */
 
     .hero {
-        padding-top:
-            calc(var(--nav-height) + 55px);
+        padding: 0;
+    }
+
+
+    .hero-stage {
+        padding-top: calc(var(--nav-height) + 55px);
     }
 
 
@@ -2378,20 +2402,15 @@ footer {
     /* Hero */
 
     .hero {
-        min-height: 100svh;
+        padding: 0;
+    }
 
+
+    .hero-stage {
         padding:
             calc(var(--nav-height) + 35px)
             18px
             55px;
-    }
-
-
-    .hero::before {
-        width: 300px;
-        height: 300px;
-
-        filter: blur(80px);
     }
 
 
@@ -2419,7 +2438,7 @@ footer {
     }
 
 
-    .hero > p {
+    .hero-content > p {
         margin-top: 18px;
 
         font-size: 13px;
@@ -2888,6 +2907,35 @@ footer {
 }
 
 
+/* Touch screens cannot rely on hover to reveal project details. */
+@media (min-width: 601px) and (hover: none), (min-width: 601px) and (pointer: coarse) {
+    .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    }
+
+    .project-card {
+        min-height: 420px;
+        aspect-ratio: auto;
+    }
+
+    .project-card img {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .project-card:hover img {
+        transform: none;
+        filter: brightness(0.72);
+    }
+
+    .project-overlay {
+        padding: 22px;
+        transform: none;
+    }
+}
+
+
 /* =========================================================
    VERY SMALL DEVICES
 ========================================================= */
@@ -2895,6 +2943,11 @@ footer {
 @media (max-width: 380px) {
 
     .hero {
+        padding: 0;
+    }
+
+
+    .hero-stage {
         padding-left: 14px;
         padding-right: 14px;
     }
@@ -2972,9 +3025,7 @@ footer {
     orientation: landscape
 ) {
 
-    .hero {
-        min-height: auto;
-
+    .hero-stage {
         padding-top: 110px;
         padding-bottom: 70px;
     }
@@ -2985,7 +3036,7 @@ footer {
     }
 
 
-    .hero > p {
+    .hero-content > p {
         max-width: 650px;
     }
 
@@ -3004,6 +3055,17 @@ footer {
 
     html {
         scroll-behavior: auto;
+    }
+
+
+    .hero {
+        height: 100vh;
+        height: 100svh;
+    }
+
+
+    .hero-video {
+        display: none;
     }
 
 
