@@ -5,10 +5,11 @@
     const submitButton = document.getElementById("submit-button");
     const formStatus = document.getElementById("form-status");
     const hero = document.querySelector(".hero");
+    const heroStage = document.querySelector(".hero-stage");
     const heroVideo = document.querySelector(".hero-video");
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-    if (hero && heroVideo) {
+    if (hero && heroStage && heroVideo) {
         let frameRequest = 0;
         let videoFrameRequest = 0;
         let metadataReady = false;
@@ -18,6 +19,7 @@
 
         function disableHeroVideo() {
             heroVideo.hidden = true;
+            metadataReady = false;
             hero.style.setProperty("--hero-scroll-distance", "0px");
 
             if (videoFrameRequest && heroVideo.cancelVideoFrameCallback) {
@@ -36,7 +38,7 @@
 
         function updateScrollTarget() {
             const scrollDistance =
-                hero.offsetHeight - document.documentElement.clientHeight;
+                hero.offsetHeight - heroStage.offsetHeight;
 
             const scrollProgress =
                 scrollDistance > 0
@@ -119,14 +121,34 @@
             }
 
             metadataReady = true;
-            heroVideo.pause();
+            requestHeroUpdate();
+        }
+
+        function handleReducedMotionChange() {
+            if (reducedMotion.matches) {
+                heroVideo.autoplay = false;
+                heroVideo.pause();
+                disableHeroVideo();
+                return;
+            }
+
+            hero.style.removeProperty("--hero-scroll-distance");
+            heroVideo.hidden = false;
+            metadataReady = false;
+            seekInFlight = false;
+            lastCompletedTime = null;
+            heroVideo.preload = "auto";
+            heroVideo.autoplay = true;
+            heroVideo.load();
             requestHeroUpdate();
         }
 
         heroVideo.addEventListener("loadedmetadata", handleMetadata);
         heroVideo.addEventListener("canplay", function () {
-            heroVideo.pause();
             requestHeroUpdate();
+        });
+        heroVideo.addEventListener("playing", function () {
+            heroVideo.pause();
         });
         heroVideo.addEventListener("seeking", function () {
             seekInFlight = true;
@@ -148,7 +170,7 @@
 
         window.addEventListener("scroll", requestHeroUpdate, { passive: true });
         window.addEventListener("resize", requestHeroUpdate, { passive: true });
-        reducedMotion.addEventListener("change", requestHeroUpdate);
+        reducedMotion.addEventListener("change", handleReducedMotionChange);
         document.addEventListener("visibilitychange", function () {
             if (document.hidden) {
                 if (frameRequest) {
@@ -167,7 +189,14 @@
             requestHeroUpdate();
         });
 
-        requestHeroUpdate();
+        if (reducedMotion.matches) {
+            handleReducedMotionChange();
+        } else {
+            heroVideo.preload = "auto";
+            heroVideo.autoplay = true;
+            heroVideo.load();
+            requestHeroUpdate();
+        }
     }
 
     // Initialize EmailJS
